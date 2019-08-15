@@ -3,10 +3,9 @@
 </template>
 
 <script>
-import CSSModules from 'vue-css-modules'
+
 export default {
   name: 'about',
-  mixins: [CSSModules()],
   components: {
   },
   props: {
