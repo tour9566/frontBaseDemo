@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-   <headerTop></headerTop>
+    <el-button>ok</el-button>
+    <headerTop></headerTop>
     <div styleName="main">
       <router-view styleName="main-middle"></router-view>
     </div>
@@ -8,20 +9,20 @@
 </template>
 
 <script>
-import CSSModules from 'vue-css-modules'
-import HeaderTop from '@/components/common/Header.vue'
+import CSSModules from "vue-css-modules";
+import HeaderTop from "@/components/common/Header.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   mixins: [CSSModules()],
   components: { HeaderTop },
   props: {},
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {},
+  mounted() {},
   methods: {}
-}
+};
 </script>
 
 <style module lang="scss">
