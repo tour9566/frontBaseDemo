@@ -28,7 +28,8 @@ export default {
     height: 100%;
     min-width: 1450px;
     .main {
-        height: 200px;
+        height: 800px;
+        background-color: red;
     }
 }
 </style>
