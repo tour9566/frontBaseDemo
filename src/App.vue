@@ -1,34 +1,34 @@
 <template>
-  <div id="app">
-    <el-button>ok</el-button>
-    <headerTop></headerTop>
-    <div styleName="main">
-      <router-view styleName="main-middle"></router-view>
+    <div id="app" :class="$style['header']">
+        <el-button>ok</el-button>
+        <headerTop></headerTop>
+        <div :class="$style.main">
+            <router-view></router-view>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import CSSModules from "vue-css-modules";
-import HeaderTop from "@/components/common/Header.vue";
+import HeaderTop from '@/components/common/Header.vue'
 
 export default {
-  name: "App",
-  mixins: [CSSModules()],
-  components: { HeaderTop },
-  props: {},
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {}
-};
+    name: 'App',
+    components: { HeaderTop },
+    props: {},
+    data() {
+        return {}
+    },
+    mounted() {},
+    methods: {}
+}
 </script>
 
 <style module lang="scss">
-:global {
-  #app {
+#app {
     height: 100%;
     min-width: 1450px;
-  }
+    .main {
+        height: 200px;
+    }
 }
+</style>

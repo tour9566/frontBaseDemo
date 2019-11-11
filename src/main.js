@@ -5,7 +5,7 @@ import store from './store/index.js'
 import 'normalize.css'
 import moment from 'moment'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './style/element-variables.scss'
 
 
 Vue.prototype.$moment = moment
