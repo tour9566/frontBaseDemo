@@ -1,14 +1,12 @@
 <template>
-  <div styleName="example">例子</div>
+   <div :class="$style.example">例子</div>
 </template>
 
 <script>
-import CSSModules from 'vue-css-modules'
 import { mapActions, mapMutations, mapGetters } from 'vuex'
 import { GET_DATA } from '@/store/mutations.type.js'
 export default {
   name: 'example',
-  mixins: [CSSModules()],
   components: {
   },
   props: {
@@ -18,24 +16,31 @@ export default {
     }
   },
   mounted () {
-    this.getFollowPersonByPhone('15071321557', '', '', 0)
+    this.queryByParam()
+    this.queryByObj()
   },
   computed: {
-    ...mapGetters('helloWorldStore', ['data'])
+    ...mapGetters('homeStore', ['data'])
   },
   methods: {
-    ...mapActions('helloWorldStore', ['getFollowPersonInfoByPhone']),
-    ...mapMutations('helloWorldStore', { aliasGetData: GET_DATA }),
+    ...mapActions('homeStore', ['postQuery','getQuery']),
+    ...mapMutations('homeStore', { aliasGetData: GET_DATA }),
 
-    async getFollowPersonByPhone (phone, startTime, endTime, cnt) {
-      let params = {
-        mobile: phone,
-        timeBegin: startTime,
-        timeEnd: endTime,
-        cnt: cnt
+    async queryByObj () {
+      let resultEntity = await this.postQuery({})
+      if (resultEntity.status === '1') {
+        this.aliasGetData(resultEntity.data)
+        console.log(this.data)
+        alert('查询成功')
+      } else {
+        alert('查询失败')
       }
-      console.log(this.data)
-      let resultEntity = await this.getFollowPersonInfoByPhone(params)
+    },
+     async queryByParam () {
+      let resultEntity = await this.getQuery({
+        param1:"1111",
+        param2:'22222'
+      })
       if (resultEntity.status === '1') {
         this.aliasGetData(resultEntity.data)
         console.log(this.data)

@@ -1,7 +1,7 @@
-import { postQuery, getQuery} from "@/axios/request/home"
+import { postQuery, getQuery} from "@/axios/request/test"
 import { GET_DATA } from '../mutations.type'
 
-const formateData= data=>{
+const formateData=(data)=>{
   return data.map(x => ({
     ...x,
     }))

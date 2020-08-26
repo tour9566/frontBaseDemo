@@ -9,8 +9,17 @@ module.exports = {
     },
     devServer: {
         open: true,
-        port: 4000
-    },
+        port: 4000,
+    //     proxy: {
+    //          '/api': {
+    //               target: ' http://localhost:9000',
+    //               changeOrigin: true,
+    //               pathRewrite: {
+    //                 '^/api': '/' 
+    //               }
+    //             }
+    //         },
+        },
     // transpileDependencies: ['vue-echarts', 'resize-detector'],
     lintOnSave: true,
     productionSourceMap: true,
@@ -22,7 +31,7 @@ module.exports = {
                 // 格式化类名：name是当前文件名称，hash是hash生成的字符串，长度为5
                 localIdentName: '[name]-[local]-[hash:base64:5]',
                 // 在类名有中横线时，'only'在标签上绑定类名时只支持大驼峰，true：支持大驼峰也支持中括号命名
-                camelCase: 'only'
+                camelCase: true
             },
             // 给 sass-loader 传递选项
             scss: {

@@ -1,10 +1,10 @@
 <template>
-  <div styleName="header">
-    <div styleName="nav-list">
+  <div :class="$style.header">
+    <div :class="$style['nav-list']">
       <router-link
         v-for="(item, index) in menuList"
         :key="index"
-        styleName="nav-item"
+        :class="$style.navItem"
         active-class="active"
         :to="item.path"
       >{{ item.meta.title }}</router-link>
@@ -13,28 +13,25 @@
 </template>
 
 <script>
-import CSSModules from 'vue-css-modules'
+
 export default {
-  name: 'App',
-  mixins: [CSSModules()],
-  components: {},
-  props: {},
-  data () {
-    return {
-      menuList: []
+    name: 'Header',
+    components: {},
+    props: {},
+    data() {
+        return {
+            menuList: []
+        }
+    },
+    created() {
+        this.setMenuList()
+    },
+    mounted() {},
+    methods: {
+        setMenuList() {
+            this.menuList = this.$router.options.routes.filter(item => item.headerShow)
+        }
     }
-  },
-  created () {
-    this.setMenuList()
-  },
-  mounted () {},
-  methods: {
-    setMenuList () {
-      this.menuList = this.$router.options.routes.filter(
-        item => item.headerShow
-      )
-    }
-  }
 }
 </script>
 

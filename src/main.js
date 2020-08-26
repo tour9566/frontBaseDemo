@@ -11,7 +11,7 @@ import '@/style/common.scss'
 Vue.prototype.$moment = moment
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+Vue.use(ElementUI,{ size: 'small' })
 
 new Vue({
     router,

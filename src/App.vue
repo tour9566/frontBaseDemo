@@ -1,6 +1,5 @@
 <template>
     <div id="app" :class="$style['header']">
-        <el-button>ok</el-button>
         <headerTop></headerTop>
         <div :class="$style.main">
             <router-view></router-view>
@@ -9,7 +8,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import HeaderTop from '@/components/common/Header.vue'
+import { VueLoading } from 'vue-loading-template'
 
 export default {
     name: 'App',

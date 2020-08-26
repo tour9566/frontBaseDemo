@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import example from '@/components/common/example.vue'
+import example from '@/components/common/Example.vue'
 export default {
     name: 'home',
     components: {
